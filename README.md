@@ -79,8 +79,42 @@ $config = [
     // 配置商户支付双向证书目录（可选，在使用退款|打款|红包时需要）
     'ssl_key'        => '',
     'ssl_cer'        => '',
-    // 缓存目录配置（可选，需拥有读写权限）
-    'cache_path'     => '',
+    //缓存配置
+    'cache_dirvers'    => [
+        // redis配置
+        'driver'=>'redis',
+        'config'=>[
+            'host'=>'xxx',
+            'pass'=>'xxx',
+            'port'=>'xxx',
+            'db'=>'0',
+        ]
+        /* file 配置
+        'driver'=>'file',
+        'config'=>[
+            'cache_path' => 'xxx',//（可选，需拥有读写权限）
+            'crypt'=>'md5',
+        ],
+        */
+        /*
+        'driver'=>'memcache',
+        'config'=>[
+            'host'=>'xxx',
+            'port'=>'xxx',
+        ]
+        */
+        /* 腾讯对象存储 cos,[未实现]
+        'driver'=>'cos',
+        'config'=>[
+            'region'=>'ap-guangzhou',
+            'credentials'=>[
+                'appId' => 'xxx',
+                'secretId'    => 'xxx',
+                'secretKey' => 'xxx'
+            ],
+        ]
+        */
+    ]
 ];
 ```
 
