@@ -14,9 +14,11 @@
 
 namespace WeChat\Contracts;
 
+use WeCaches\WeCache;
 use WeChat\Exceptions\InvalidArgumentException;
 use WeChat\Exceptions\InvalidResponseException;
 use WeChat\Exceptions\LocalCacheException;
+
 
 /**
  * 网络请求支持
@@ -30,6 +32,21 @@ class Tools
      * @var null
      */
     public static $cache_path = null;
+
+    /**
+     * 缓存的驱动 默认是file | 推荐：redis | memcache
+     */
+    public static $cache_driver = null;
+
+    /**
+     * 缓存的配置
+     */
+    public static $cache_config = [];
+
+    /**
+     * 缓存实体
+     */
+    public static $cache_obj = null;
 
 
     /**
@@ -258,15 +275,11 @@ class Tools
      * @param string $name 缓存名称
      * @param string $value 缓存内容
      * @param int $expired 缓存时间(0表示永久缓存)
-     * @throws LocalCacheException
      */
     public static function setCache($name, $value = '', $expired = 3600)
     {
-        $cache_file = self::getCacheName($name);
-        $content = serialize(['name' => $name, 'value' => $value, 'expired' => time() + intval($expired)]);
-        if (!file_put_contents($cache_file, $content)) {
-            throw new LocalCacheException('local cache error.', '0');
-        }
+        $cache = self::getCacheObj();
+        return $cache->setCache($name,$value,$expired);
     }
 
     /**
@@ -276,15 +289,8 @@ class Tools
      */
     public static function getCache($name)
     {
-        $cache_file = self::getCacheName($name);
-        if (file_exists($cache_file) && ($content = file_get_contents($cache_file))) {
-            $data = unserialize($content);
-            if (isset($data['expired']) && (intval($data['expired']) === 0 || intval($data['expired']) >= time())) {
-                return $data['value'];
-            }
-            self::delCache($name);
-        }
-        return null;
+        $cache = self::getCacheObj();
+        return $cache->getCache($name);
     }
 
     /**
@@ -294,22 +300,22 @@ class Tools
      */
     public static function delCache($name)
     {
-        $cache_file = self::getCacheName($name);
-        return file_exists($cache_file) ? unlink($cache_file) : true;
+        $cache = self::getCacheObj();
+        return $cache->delCache($name);
     }
 
+
+
     /**
-     * 应用缓存目录
-     * @param string $name
-     * @return string
+     * 活动缓存对象
+     * @return null|WeCache
      */
-    private static function getCacheName($name)
+    private static function getCacheObj()
     {
-        if (empty(self::$cache_path)) {
-            self::$cache_path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Cache' . DIRECTORY_SEPARATOR;
+        if(!self::$cache_obj)
+        {
+            self::$cache_obj = new WeCache(self::$cache_driver,self::$cache_config);
         }
-        self::$cache_path = rtrim(self::$cache_path, '/\\') . DIRECTORY_SEPARATOR;
-        file_exists(self::$cache_path) || mkdir(self::$cache_path, 0755, true);
-        return self::$cache_path . $name;
+        return self::$cache_obj;
     }
 }

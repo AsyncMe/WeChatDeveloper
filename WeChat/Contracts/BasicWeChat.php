@@ -69,9 +69,11 @@ class BasicWeChat
         if (isset($options['GetAccessTokenCallback']) && is_callable($options['GetAccessTokenCallback'])) {
             $this->GetAccessTokenCallback = $options['GetAccessTokenCallback'];
         }
-        if (!empty($options['cache_path'])) {
-            Tools::$cache_path = $options['cache_path'];
+        if (!empty($options['cache_dirvers']) && in_array($options['cache_dirvers'],['redis','memcache'])){
+            Tools::$cache_driver = $options['cache_dirvers'];
+            Tools::$cache_config = $options['cache_dirvers']['config'];
         }
+
         $this->config = new DataArray($options);
     }
 
