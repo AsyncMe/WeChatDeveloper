@@ -23,6 +23,38 @@ return [
     // 配置商户支付双向证书目录
     'ssl_key'        => __DIR__ . DIRECTORY_SEPARATOR . 'cert' . DIRECTORY_SEPARATOR . 'apiclient_key.pem',
     'ssl_cer'        => __DIR__ . DIRECTORY_SEPARATOR . 'cert' . DIRECTORY_SEPARATOR . 'apiclient_cert.pem',
-    // 配置缓存目录，需要拥有写权限
-    'cache_path'     => '',
+    'cache_dirvers'    => [
+        // redis配置
+        'driver'=>'redis',
+        'config'=>[
+            'host'=>'xxx',
+            'pass'=>'xxx',
+            'port'=>'xxx',
+            'db'=>'0',
+        ]
+        /* file 配置
+        'driver'=>'file',
+        'config'=>[
+            'cache_path' => 'xxx',//（可选，需拥有读写权限）
+            'crypt'=>'md5',
+        ],
+        */
+        /*
+        'driver'=>'memcache',
+        'config'=>[
+            'host'=>'xxx',
+            'port'=>'xxx',
+        ]
+        */
+        /* 腾讯对象存储 cos,[未实现]
+        'driver'=>'cos',
+        'config'=>[
+            'region'=>'ap-guangzhou',
+            'credentials'=>[
+                'appId' => 'xxx',
+                'secretId'    => 'xxx',
+                'secretKey' => 'xxx'
+            ],
+        */
+    ]
 ];

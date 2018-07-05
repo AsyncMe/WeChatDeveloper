@@ -84,24 +84,24 @@ $config = [
         // redis配置
         'driver'=>'redis',
         'config'=>[
-            'host'=>'xxx',
-            'pass'=>'xxx',
-            'port'=>'xxx',
-            'db'=>'0',
-        ]
+                'host'=>'xxx',
+                'pass'=>'xxx',
+                'port'=>'xxx',
+                'db'=>'0',
+            ]
         /* file 配置
         'driver'=>'file',
         'config'=>[
-            'cache_path' => 'xxx',//（可选，需拥有读写权限）
-            'crypt'=>'md5',
-        ],
+                'cache_path' => 'xxx',//（可选，需拥有读写权限）
+                'crypt'=>'md5',
+            ],
         */
         /*
         'driver'=>'memcache',
         'config'=>[
-            'host'=>'xxx',
-            'port'=>'xxx',
-        ]
+                'host'=>'xxx',
+                'port'=>'xxx',
+            ]
         */
         /* 腾讯对象存储 cos,[未实现]
         'driver'=>'cos',
@@ -112,7 +112,7 @@ $config = [
                 'secretId'    => 'xxx',
                 'secretKey' => 'xxx'
             ],
-        ]
+
         */
     ]
 ];
