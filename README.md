@@ -1,7 +1,3 @@
-[![Latest Stable Version](https://poser.pugx.org/zoujingli/wechat-developer/v/stable)](https://packagist.org/packages/zoujingli/wechat-developer) 
-[![Latest Unstable Version](https://poser.pugx.org/zoujingli/wechat-developer/v/unstable)](https://packagist.org/packages/zoujingli/wechat-developer) 
-[![Total Downloads](https://poser.pugx.org/zoujingli/wechat-developer/downloads)](https://packagist.org/packages/zoujingli/wechat-developer) 
-[![License](https://poser.pugx.org/zoujingli/wechat-developer/license)](https://packagist.org/packages/zoujingli/wechat-developer)
 
 WeChatDeveloper for PHP
 --
@@ -14,29 +10,9 @@ WeChatDeveloper for PHP
 
 
 Documentation
---
-PHP开发技术交流（QQ群 513350915）
-
-[![PHP微信开发群 (SDK)](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=ae25cf789dafbef62e50a980ffc31242f150bc61a61164458216dd98c411832a) 
-
-WeChatDeveloper 是基于官方接口封装，在做微信开发前，必需先阅读微信官方文档。
-* 微信官方文档：https://mp.weixin.qq.com/wiki
-* 商户支付文档：https://pay.weixin.qq.com/wiki/doc/api/index.html
-
-针对 WeChatDeveloper 也有一准备了帮助资料可供参考。
-* ThinkAdmin：https://github.com/zoujingli/Think.Admin
-* 开发文档地址：https://www.kancloud.cn/zoujingli/wechat-developer
-
-
-Repositorie
---
-WeChatDeveloper 为开源项目，允许把它用于任何地方，不受任何约束，欢迎 fork 项目。
-* Gitee 托管地址：https://gitee.com/zoujingli/WeChatDeveloper
-* GitHub 托管地址：https://github.com/zoujingli/WeChatDeveloper
 
 ClassMap
 --
-
 
 |文件名|类名|描述|类型|加载 ①|
 |---|---|---|---|---|
@@ -75,13 +51,13 @@ Install
 1.1 通过 Composer 来管理安装
 ```shell
 # 首次安装 线上版本（稳定）
-composer require zoujingli/wechat-developer
+composer require AsyncMe/WeChatDeveloper
 
 # 首次安装 开发版本（开发）
-composer require zoujingli/wechat-developer dev-master
+composer require AsyncMe/WeChatDeveloper dev-master
 
 # 更新 WeChatDeveloper
-composer update zoujingli/wechat-developer
+composer update AsyncMe/WeChatDeveloper
 ```
 
 1.2 如果不使用 Composer， 可以下载 WeChatDeveloper 并解压到项目中
@@ -93,13 +69,13 @@ include "您的目录/WeChatDeveloper/include.php";
 2.1 接口实例所需参数
 ```php
 $config = [
-    'token'          => 'test',
-    'appid'          => 'wx60a43dd8161666d4',
-    'appsecret'      => '71308e96a204296c57d7cd4b21b883e8',
-    'encodingaeskey' => 'BJIUzE0gqlWy0GxfPp4J1oPTBmOrNDIGPNav1YFH5Z5',
+    'token'          => 'xxx',
+    'appid'          => 'xxx',
+    'appsecret'      => 'xxxxx',
+    'encodingaeskey' => 'xxxx',
     // 配置商户支付参数（可选，在使用支付功能时需要）
-    'mch_id'         => "1235704602",
-    'mch_key'        => 'IKI4kpHjU94ji3oqre5zYaQMwLHuZPmj',
+    'mch_id'         => "xxx",
+    'mch_key'        => 'xxxx',
     // 配置商户支付双向证书目录（可选，在使用退款|打款|红包时需要）
     'ssl_key'        => '',
     'ssl_cer'        => '',
@@ -167,8 +143,6 @@ Copyright
 * WeChatDeveloper 部分代码来自互联网，若有异议，可以联系作者进行删除
 
 
-Sponsor
---
-![赞助](http://zoujingli.oschina.io/static/pay.png)
+
 
 

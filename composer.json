@@ -1,14 +1,14 @@
 {
   "type": "library",
-  "name": "zoujingli/wechat-developer",
-  "homepage": "https://github.com/zoujingli/WeChatDeveloper",
+  "name": "Async/WeChatDeveloper",
+  "homepage": "https://github.com/Async/WeChatDeveloper",
   "description": "WeChat platform and WeChat payment development tools",
   "license": "MIT",
   "authors": [
     {
-      "name": "Anyon",
-      "email": "zoujingli@qq.com",
-      "homepage": "http://ctolog.com"
+      "name": "Async",
+      "email": "asyncme2018@aol.com",
+      "homepage": "https://github.com/AsyncMe"
     }
   ],
   "keywords": [
