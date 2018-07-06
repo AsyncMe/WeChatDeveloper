@@ -160,6 +160,8 @@ class Tools
      */
     public static function xml2arr($xml)
     {
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
         return json_decode(self::arr2json(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
     }
 
