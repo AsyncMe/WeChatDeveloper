@@ -1,12 +1,12 @@
 {
   "type": "library",
-  "name": "Async/WeChatDeveloper",
+  "name": "AsyncMe/WeChatDeveloper",
   "homepage": "https://github.com/Async/WeChatDeveloper",
   "description": "WeChat platform and WeChat payment development tools",
   "license": "MIT",
   "authors": [
     {
-      "name": "Async",
+      "name": "AsyncMe",
       "email": "asyncme2018@aol.com",
       "homepage": "https://github.com/AsyncMe"
     }
@@ -19,7 +19,7 @@
     "WeChatDeveloper"
   ],
   "require": {
-    "php": ">=5.4",
+    "php": ">=7.0",
     "ext-curl": "*",
     "ext-openssl": "*"
   },
